@@ -35,11 +35,6 @@ export function range(length: number, start?: number) {
     : values;
 }
 
-export function wrap(value: number, min: number, max: number) {
-  const range = max - min + 1;
-  return ((((value - min) % range) + range) % range) + min;
-}
-
 export function gcd(a: number, b: number): number {
   return b ? gcd(b, a % b) : a;
 }
@@ -48,4 +43,13 @@ export function lcm(numbers: number[]) {
   return numbers.reduce(function (res, num) {
     return (res * num) / gcd(res, num);
   }, 1);
+}
+
+export function mod(a: number, b: number) {
+  return ((a % b) + b) % b;
+}
+
+export function wrap(value: number, min: number, max: number) {
+  const range = max - min + 1;
+  return mod(value - min, range) + min;
 }
