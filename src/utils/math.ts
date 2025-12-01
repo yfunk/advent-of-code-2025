@@ -27,6 +27,11 @@ export const range = (length: number, start?: number) => {
   return start ? values.map((v) => start + v) : values;
 };
 
+export const wrap = (value: number, min: number, max: number) => {
+  const range = max - min + 1;
+  return ((((value - min) % range) + range) % range) + min;
+};
+
 export const gcd = (a: number, b: number): number => {
   return b ? gcd(b, a % b) : a;
 };
