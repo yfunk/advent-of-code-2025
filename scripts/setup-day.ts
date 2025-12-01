@@ -40,7 +40,7 @@ const files: Array<File> = [
   },
 ];
 
-const setupDay = async (day: number) => {
+async function setupDay(day: number) {
   if (!validateDay(day)) {
     console.log(`🎅 Pick a day between ${chalk.bold(1)} and ${chalk.bold(12)}.`);
     console.log(`🎅 To get started, try: ${chalk.cyan('bun setup 1')}`);
@@ -84,7 +84,7 @@ const setupDay = async (day: number) => {
   } catch (err: any) {
     console.error(chalk.red(err?.message ?? 'Failed to set up day'));
   }
-};
+}
 
 const day = Number(Bun.argv[2] ?? '') ?? new Date().getDate();
 setupDay(day);

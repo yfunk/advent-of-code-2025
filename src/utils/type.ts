@@ -1,7 +1,16 @@
-export const isNumber = (value: unknown): value is number => typeof value === 'number';
-export const isString = (value: unknown): value is string => typeof value === 'string';
-export const isBoolean = (value: unknown): value is boolean => typeof value === 'boolean';
-export const isObject = (value: unknown): value is object => typeof value === 'object';
+export function isNumber(value: unknown): value is number {
+  return typeof value === 'number';
+}
+export function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+export function isBoolean(value: unknown): value is boolean {
+  return typeof value === 'boolean';
+}
+export function isObject(value: unknown): value is object {
+  return typeof value === 'object';
+}
 
-export const isNumericString = (value: unknown): value is string =>
-  isString(value) && !isNaN(+value);
+export function isNumericString(value: unknown): value is string {
+  return isString(value) && !isNaN(+value);
+}

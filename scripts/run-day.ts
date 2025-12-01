@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import { formatDay, formatDayName, formatPerformance, validateDay, withPerformance } from './utils';
 
-const runDay = async (day: number, isDevMode?: boolean) => {
+async function runDay(day: number, isDevMode?: boolean) {
   if (!validateDay(day)) {
     console.log(`🎅 Pick a day between ${chalk.bold(1)} and ${chalk.bold(12)}.`);
     console.log(`🎅 To get started, try: ${chalk.cyan('bun day 1')}`);
@@ -37,7 +37,7 @@ const runDay = async (day: number, isDevMode?: boolean) => {
     chalk.green(two ?? '—'),
     two ? `(${formatPerformance(twoPerformance)})` : ''
   );
-};
+}
 
 const day = Number(Bun.argv[2] ?? '');
 const isDevMode = Bun.argv[3] === '--dev';

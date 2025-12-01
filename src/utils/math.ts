@@ -1,41 +1,51 @@
-export const sum = (numbers: number[]) => {
-  return numbers.reduce((sum, num) => sum + num, 0);
-};
+export function sum(numbers: number[]) {
+  return numbers.reduce(function (sum, num) {
+    return sum + num;
+  }, 0);
+}
 
-export const multiply = (numbers: number[]) => {
-  return numbers.reduce((res, num) => res * num, 1);
-};
+export function multiply(numbers: number[]) {
+  return numbers.reduce(function (res, num) {
+    return res * num;
+  }, 1);
+}
 
-export const unique = <T>(arr: T[]) => {
+export function unique<T>(arr: T[]) {
   return [...new Set(arr)];
-};
+}
 
-export const isBetween = (x: number, [min, max]: [number, number]) => {
+export function isBetween(x: number, [min, max]: [number, number]) {
   return x >= min && x <= max;
-};
+}
 
-export const min = (numbers: number[]) => {
+export function min(numbers: number[]) {
   return Math.min(...numbers);
-};
+}
 
-export const max = (numbers: number[]) => {
+export function max(numbers: number[]) {
   return Math.max(...numbers);
-};
+}
 
-export const range = (length: number, start?: number) => {
+export function range(length: number, start?: number) {
   const values = [...Array(length).keys()];
-  return start ? values.map((v) => start + v) : values;
-};
+  return start
+    ? values.map(function (v) {
+        return start + v;
+      })
+    : values;
+}
 
-export const wrap = (value: number, min: number, max: number) => {
+export function wrap(value: number, min: number, max: number) {
   const range = max - min + 1;
   return ((((value - min) % range) + range) % range) + min;
-};
+}
 
-export const gcd = (a: number, b: number): number => {
+export function gcd(a: number, b: number): number {
   return b ? gcd(b, a % b) : a;
-};
+}
 
-export const lcm = (numbers: number[]) => {
-  return numbers.reduce((res, num) => (res * num) / gcd(res, num), 1);
-};
+export function lcm(numbers: number[]) {
+  return numbers.reduce(function (res, num) {
+    return (res * num) / gcd(res, num);
+  }, 1);
+}
