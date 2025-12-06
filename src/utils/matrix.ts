@@ -65,10 +65,10 @@ export function* matrixElements<T>(
   }
 }
 
-function getRowElements<T>(matrix: Matrix<T>, row: number) {
+export function getRowElements<T>(matrix: Matrix<T>, row: number) {
   return matrix[row];
 }
 
-function getColumnElements<T>(matrix: Matrix<T>, col: number) {
+export function getColumnElements<T>(matrix: Matrix<T>, col: number) {
   return matrix.map((row) => row[col]);
 }

@@ -12,13 +12,21 @@ export type Day =
   | 'day-11'
   | 'day-12';
 
-export async function readFile(filepath: string) {
+type ReadFileOptions = {
+  trim?: boolean;
+};
+
+export async function readFile(filepath: string, options: ReadFileOptions = { trim: true }) {
   const file = Bun.file(filepath);
   const text = await file.text();
-  return text.trim();
+  return options?.trim ? text.trim() : text;
 }
 
-export async function readInput(dir: Day, fileName: string = 'input') {
+export async function readInput(
+  dir: Day,
+  fileName: string = 'input',
+  options: ReadFileOptions = { trim: true }
+) {
   const filepath = `./inputs/${dir}/${fileName}.txt`;
-  return readFile(filepath);
+  return readFile(filepath, options);
 }
